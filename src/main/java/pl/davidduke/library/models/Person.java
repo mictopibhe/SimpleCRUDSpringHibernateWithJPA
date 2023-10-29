@@ -7,36 +7,34 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "person")
+@Table(name = "Person")
 public class Person {
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty(message = "The name field cannot be empty!")
-    @Size(min = 2, max = 100, message = "The length of the name must be from 2 to 100 characters!")
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
     @Column(name = "name")
     private String name;
 
-    @NotEmpty(message = "The surname field cannot be empty!")
-    @Size(min = 2, max = 100, message = "The length of the surname must be from 2 to 100 characters!")
-    @Column(name = "surname")
-    private String surName;
+    @Min(value = 0, message = "Age should be greater than 0")
+    @Column(name = "age")
+    private int age;
 
-    @Min(value = 1900, message = "Year of birth must be greater than 1900!")
-    @Column(name = "birthyear")
-    private int birthYear;
+    @Column(name = "email")
+    @NotEmpty(message = "Email should not be empty")
+    @Email
+    private String email;
 
     public Person() {
-        super();
+
     }
 
-    public Person(String name, String surName, int birthYear) {
+    public Person(String name, int age) {
         this.name = name;
-        this.surName = surName;
-        this.birthYear = birthYear;
+        this.age = age;
     }
 
     public int getId() {
@@ -55,19 +53,28 @@ public class Person {
         this.name = name;
     }
 
-    public String getSurName() {
-        return surName;
+    public int getAge() {
+        return age;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
-    }git
-
-    public int getBirthYear() {
-        return birthYear;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public void setBirthYear(int birthYear) {
-        this.birthYear = birthYear;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

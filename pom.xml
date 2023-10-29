@@ -17,7 +17,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <spring.version>6.0.7</spring.version>
+    <spring.version>6.0.11</spring.version>
     <hibernate.version>6.1.7.Final</hibernate.version>
   </properties>
 
@@ -98,6 +98,13 @@
       <groupId>org.thymeleaf</groupId>
       <artifactId>thymeleaf-spring6</artifactId>
       <version>3.1.2.RELEASE</version>
+    </dependency>
+
+    <!-- Spring-data-jpa -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jpa</artifactId>
+      <version>3.1.5</version>
     </dependency>
 
   </dependencies>
